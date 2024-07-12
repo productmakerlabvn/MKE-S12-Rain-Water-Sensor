@@ -1,20 +1,17 @@
-// Thêm bộ thư viện.
-// Add the library.
+// Thêm bộ thư viện LCD.
+// Add the LCD library.
 #include <MKL_LiquidCrystal_I2C.h>
-#include <MKL_HCSR04.h>
 
 // Khởi tạo LCD
 //LCD config
 MKL_LiquidCrystal_I2C lcd(0x27, 16, 2);
 
-// Khởi tạo cảm biến
-// Sensor config
-#define ECHO_PIN 12
-#define TRIG_PIN 13
-MKL_HCSR04 ultra(TRIG_PIN, ECHO_PIN);
+// Đặt tên cho chân kết nối cảm biến
+// These constants won't change. They're used to give names to the pins used:
+const int analogInPin = A1;  // Analog input pin that the potentiometer is attached to
 
 // Tạo biến số nguyên lưu giá trị cảm biến
-// value read from the sensor
+// value read from the pot
 int sensorValue = 0;  
 
 void setup()
@@ -31,21 +28,22 @@ void setup()
 
 void loop()
 {
+
   // Đọc giá trị cảm biến
-  // read the sensor value:
-  sensorValue = ultra.dist();
+  // read the analog in value:
+  sensorValue = analogRead(analogInPin);
 
   //Gửi giá trị cảm biến lên LCD
   //Show the sensor value on LCD
   lcd.setCursor(1,0);
-  lcd.print("Distance");
+  lcd.print("Value:");
   lcd.setCursor(1,1);
   lcd.print(sensorValue);
-  lcd.print("cm   ");
+  lcd.print("   ");
 
-  // Truyền giá trị lên máy tính qua Serial Monitor
+  // Truyền khoảng cách đo được của cảm biến lên máy tính.
   // Show the sensor value on Arduno Serial Monitor
-  Serial.print("Distance in cm: ");
+  Serial.print("Value: ");
   Serial.println(sensorValue);
   
   // Chờ 500ms
