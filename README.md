@@ -1,55 +1,46 @@
-# Cảm biến siêu âm MKE-S01 Ultrasonic Distance Sensor
+# Cảm biến mưa MKE-S12 Rain Water Sensor
 
 ## Giới thiệu
 
-Cảm biến siêu âm MKE-S01 Ultrasonic Distance Sensor sử dụng sóng siêu âm để đo khoảng cách đến vật cản từ 3~200cm, cảm biến sử dụng IC xử lý, thạch anh chất lượng tốt cho độ bền, độ ổn định và độ chính xác cao, thích hợp để làm các loại robot tránh vật cản, chống trộm, đo khoảng cách,...
+Cảm biến mưa MKE-S12 Rain Water Sensor bao gồm một đầu dò (probe) và mạch chuyển đổi tín hiệu, cảm biến hoạt động theo nguyên lý cảm ứng điện dung nên đầu dò được phủ lớp sơn chống oxy hóa (không hở phần tiếp xúc kim loại như các loại sử dụng nguyên lý điện trở) cho độ bền cao, cảm biến trả ra giá trị điện áp Analog tương ứng với lượng nước lưu lại trên đầu dò giúp bạn có thể ghi nhận và xử lý thông tin một cách chính xác nhất, ngoài ra cảm biến còn được bổ sung các thiết kế ổn định, chống nhiễu.
 
-Cảm biến siêu âm MKE-S01 Ultrasonic Distance Sensor thuộc hệ sinh thái phần cứng Robotics MakerEdu nên có thể sử dụng trực tiếp an toàn với các mạch điều khiển trung tâm ở cả hai mức điện áp 3.3VDC và 5VDC như: Arduino, Raspberry Pi, Jetson Nano, Micro:bit,....với chuẩn kết nối Connector XH2.54 thông dụng.
+Cảm biến mưa MKE-S12 Rain Water Sensor thuộc hệ sinh thái phần cứng Robotics MakerEdu nên có thể sử dụng trực tiếp an toàn với các mạch điều khiển trung tâm ở cả hai mức điện áp 3.3VDC và 5VDC như: Arduino, Raspberry Pi, Jetson Nano, Micro:bit,....với chuẩn kết nối Connector XH2.54 thông dụng.
 
 ## Nguyên lý hoạt động
 
-Cảm biến siêu âm đo khoảng cách đến vật cản bằng cách phát sóng siêu âm từ mắt phát T (Transmitter) đến vật cản, sóng siêu âm khi đó sẽ bị phản xạ lại và truyền tới mắt thu R (Receiver), ghi nhận khoảng thời gian t quá trình này xảy ra bằng mạch xử lý kết hợp với vận tốc xác định của sóng siêu âm ta có thể tính được khoảng cách tương đối chính xác đến vật cản theo công thức:
-
-Khoảng cách đến vật cản L = (khoảng thời gian t * vận tốc sóng siêu âm) / 2
-
-![MKE_S01_Ultrasonic](/image/MKE_S01_Ultrasonic_3.jpg)
-- Minh họa sóng siêu âm từ phát phát T (Transmitter) đến vật cản bị phản xạ lại và truyền tới mắt thu R (Receiver).
-- Minh họa sóng siêu âm từ phát phát T (Transmitter) đến vật cản bị phản xạ lại và truyền tới mắt thu R (Receiver).
-
-Để tăng độ chính xác và giảm nhiễu, sóng siêu âm sẽ được mắt phát T (Transmitter) phát ra theo tần số chuyên biệt để không bị nhiễu với các loại sóng khác của môi trường, phương pháp đo khoảng cách bằng cảm biến siêu âm tương đối chính xác và ổn định, tuy nhiên vẫn có một nhược điểm của phương pháp này là phụ thuộc vào hình dạng của vật thể phản xạ, vật thể có bề mặt không phẳng sẽ làm ảnh hưởng đến độ phản xạ của sóng siêu âm dẫn đến kết quả đo kém chính xác. 
+Cảm biến hoạt động theo nguyên lý cảm ứng điện dung để nhận biết lượng nước đọng trên đầu dò (probe), sau đó điện dung của đầu dò (probe) được đưa qua mạch chuyển đổi tín hiệu để chuyển thành tín hiệu điện có thể đọc được bằng bộ chuyển đổi ADC (Analog to Digital Converter) của mạch xử lý.
 
 ## Thông số kỹ thuật
 
-- Model: MKE-S01
+- Model: MKE-S12
 - Điện áp hoạt động: 5VDC
-- Chuẩn giao tiếp: Digital
-- Điện áp giao tiếp: TTL 3.3VDC / 5VDC
-- Dòng điện hoạt động: 65mA
-- Tần số hoạt động: 40Khz
-- Khoảng cách đo được: 3-200cm
-- Góc quét: 15°
-- Tín hiệu ngõ vào Trigger: 10μs TTL pulse
+- Chuẩn giao tiếp: Analog
+- Điện áp giao tiếp: 0~3.3VDC
+- Đo lượng nước lưu lại trên đầu dò theo nguyên lý cảm ứng điện dung và trả ra giá trị điện áp Analog tuyến tính tương ứng.
+- Hoạt động theo nguyên lý cảm ứng điện dung nên đầu dò được phủ lớp sơn chống oxy hóa (không hở phần tiếp xúc kim loại như các loại sử dụng nguyên lý điện trở) cho độ bền cao.
 - Sử dụng trực tiếp an toàn với các board mạch giao tiếp ở cả hai mức điện áp 3.3VDC và 5VDC như: Arduino, Raspberry Pi, Jetson Nano, Micro:bit,....
 - Bổ sung thêm các thiết kế ổn định, chống nhiễu.
-- Chuẩn kết nối: connector XH2.54 4Pins
+- Chuẩn kết nối: 1 x Conector XH2.54 3Pins (cổng tín hiệu Analog), 1 x Conector XH2.54 2Pins (cổng kết nối đầu dò (Probe))
+- Cáp đầu dò (Probe) dài 40cm.
 - Thuộc hệ sinh thái phần cứng Robotics MakerEdu, tương thích tốt nhất khi sử dụng với các mạch điều khiển trung tâm của MakerEdu và MakerEdu Shield.
 
 ## Hình ảnh sản phẩm
 
-![MKE_S01_Ultrasonic](/image/MKE_S01_Ultrasonic_1.jpg)
+![MKE_S12](/image/MKE_S12_1.jpg)
 
-![MKE_S01_Ultrasonic](/image/MKE_S01_Ultrasonic_2.jpg)
+![MKE_S12](/image/MKE_S12_2.jpg)
 
 ## Kích thước sản phẩm
 
-![MKE_S01_Ultrasonic](/image/MKE_S01_Ultrasonic_4.JPG)
+![MKE_S12](/image/MKE_S12_3.jpg)
+![MKE_S12](/image/MKE_S12_4.jpg)
 
 ## Các chân tín hiệu
 
 - GND:	Chân cấp nguồn âm 0VDC
 - 5V:	Chân cấp nguồn dương 5VDC
-- TRIG:	Chân tín hiệu ngõ vào Trigger (Input: 3.3~5VDC)
-- ECHO:	Chân tín hiệu ngõ ra Echo (Output: 3.3VDC)
+- SIG: Chân tín hiệu ngõ ra Analog 0~3.3VDC
+- Probe: Cổng kết nối đầu dò (Probe)
 
 ## Hướng dẫn sử dụng
 
@@ -75,9 +66,9 @@ Khoảng cách đến vật cản L = (khoảng thời gian t * vận tốc són
 [Hướng dẫn cài đặt phần mềm, nạp chương trình, cài đặt bộ thư viện Arduino cơ bản.](https://github.com/makerlabvn/Arduino-Vietduino)
 - Tải và cài đặt [phần mềm Arduino tại đây.](https://www.arduino.cc/en/software)
 - Trong Tools / Library Manager, tìm và cài đặt bộ thư viện tổng hợp "MAKERLABVN" by MakerLab.vn
-- Mở chương trình mẫu "MKE_S01_Ultrasonic_LCD_Serial.ino" tại File / Examples / MAKERLABVN / Sensor / MKE-S01_Ultrasonic hoặc [tải chương trình mẫu tại đây](/arduino)
+- Mở chương trình mẫu "MKE_S12_Rain_LCD_Serial.ino" tại File / Examples / MAKERLABVN / Sensor / MKE_S12_Rain hoặc [tải chương trình mẫu tại đây](/arduino)
 - Chọn board là Arduino Uno (mạch Vietduino Uno tương thích với Arduino Uno), chọn đúng cổng COM Port của mạch và tiến hành nạp chương trình.
-- Kết nối mạch Vietduino Uno với MakerEdu Shield, kết nối cảm biến tại cổng [D12,13] và màn hình LCD vào cổng [I2C] trên MakerEdu Shield, cấp nguồn qua cổng USB của Vietduino Uno để thấy chương trình hoạt động.
+- Kết nối mạch Vietduino Uno với MakerEdu Shield, kết nối cảm biến tại cổng [A1] và màn hình LCD vào cổng [I2C] trên MakerEdu Shield, cấp nguồn qua cổng USB của Vietduino Uno để thấy chương trình hoạt động.
 
 ### Hướng dẫn lập trình với mBlock (kéo thả khối)
 [Hướng dẫn cài đặt phần mềm, nạp chương trình, cài đặt Extension mBlock cơ bản.](https://github.com/makerlabvn/mBlock-MakerEdu-Creator)
@@ -86,15 +77,15 @@ Khoảng cách đến vật cản L = (khoảng thời gian t * vận tốc són
 - Thêm Extension "Upload Mode Broadcast" by mBlock Official
 - Thêm Extension "MakerEdu Hardware" by MakerEduVN
 - Mở [chương trình mẫu tại đây](/mBlock5), kết nối MakerEdu Creator với máy tính và nạp chương trình.
-- Kết nối cảm biến với cổng [D3,D2] và màn hình LCD vào cổng [I2C] trên MakerEdu Creator, cấp nguồn qua cổng USB của MakerEdu Creator để thấy chương trình hoạt động.
+- Kết nối cảm biến với cổng [A1] và màn hình LCD vào cổng [I2C] trên MakerEdu Creator, cấp nguồn qua cổng USB của MakerEdu Creator để thấy chương trình hoạt động.
 
 
 ### Hướng dẫn lập trình với Micro:bit (kéo thả khối)
 [Hướng dẫn nạp chương trình, cài đặt Extension Micro:bit cơ bản.](https://github.com/makerlabvn/MakeCode-microbit)
 - Khởi động phần mềm MakeCode tại: [https://makecode.microbit.org/](https://makecode.microbit.org/)
-- Chọn My Projects / Import / Import URL theo đường link của chương trình mẫu: [https://github.com/devmakerlabvn/makecode-mke-s01-ultrasonic-distance-sensor](https://github.com/devmakerlabvn/makecode-mke-s01-ultrasonic-distance-sensor)
+- Chọn My Projects / Import / Import URL theo đường link của chương trình mẫu: [https://github.com/devmakerlabvn/makecode-mke-s12-rain-water-sensor](https://github.com/devmakerlabvn/makecode-mke-s12-rain-water-sensor)
 - Kết nối Micro:bit với máy tính và nạp chương trình.
-- Kết nối mạch Micro:bit với MakerEdu Shield, kết nối cảm biến tại cổng [P0+P1] và màn hình LCD vào cổng [I2C] trên MakerEdu Shield, **cấp nguồn qua cổng USB của MakerEdu Shield** để thấy chương trình hoạt động.
+- Kết nối mạch Micro:bit với MakerEdu Shield, kết nối cảm biến tại cổng [P0] và màn hình LCD vào cổng [I2C] trên MakerEdu Shield, **cấp nguồn qua cổng USB của MakerEdu Shield** để thấy chương trình hoạt động.
 
 ## Hỗ trợ và liên hệ:
 
